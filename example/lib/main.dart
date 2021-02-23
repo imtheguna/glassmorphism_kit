@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: DemoCard(),
+      home: WidgetDemo(),
     );
   }
 }
@@ -30,67 +30,90 @@ class WidgetDemo extends StatelessWidget {
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("assets/4.jpg"), fit: BoxFit.cover)),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 10,
-                ),
-                GlassContainer(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Container',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                    ),
+          child: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 10,
                   ),
-                  color: Colors.white,
-                  colorOpacity: 0.1,
-                  blurStrengthX: 10,
-                  blurStrengthY: 10,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(
-                      15,
-                    ),
-                  ),
-                  width: 290,
-                  height: 180,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                GlassCircle(
-                  child: Center(
+                  GlassContainer(
+                    alignment: Alignment.center,
                     child: Text(
-                      'Circle',
+                      'Container',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    color: Colors.white,
+                    colorOpacity: 0.1,
+                    blurStrengthX: 10,
+                    blurStrengthY: 10,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        15,
+                      ),
+                    ),
+                    width: 290,
+                    height: 180,
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                GlassCapsule(
-                  width: 300,
-                  child: Center(
-                    child: Text(
-                      'Capsule',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GlassCircle(
+                    child: Center(
+                      child: Text(
+                        'Circle',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
-                )
-              ],
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GlassCapsule(
+                    width: 300,
+                    child: Center(
+                      child: Text(
+                        'Capsule',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GlassBotton(
+                    alignment: Alignment.center,
+                    height: 80,
+                    child: Text(
+                      'Tap Me',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    width: 200,
+                    onTap: () {},
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.6),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),

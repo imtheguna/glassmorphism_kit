@@ -2,6 +2,14 @@
 
 A Flutter package for creating Glassmorphic UI designs in an easy and simple manner! Supports iOS, Android and web.
 
+GlassWidget             |  GlassCard Demo
+:-------------------------:|:-------------------------:
+<img src="https://user-images.githubusercontent.com/58139175/108697570-0a30a080-7529-11eb-9977-b5d7390e535b.jpg?raw=true" width="250">  |  <img src="https://user-images.githubusercontent.com/58139175/108697593-13217200-7529-11eb-8883-6ebcb690f2c2.jpg?raw=true)" width="250">
+
+GlassBar             |  GlassDrawer
+:-------------------------:|:-------------------------:
+<img src="https://user-images.githubusercontent.com/58139175/108697583-0ef55480-7529-11eb-8606-2a52ceec36db.jpg?raw=true" width="250">  |  <img src="https://user-images.githubusercontent.com/58139175/108697586-1157ae80-7529-11eb-9f53-7ef44007e67f.jpg?raw=true)" width="250">
+
 ## GlassContainer
 
 ```dart
@@ -22,7 +30,7 @@ GlassContainer(
         colorOpacity: 0.1,
         blurStrengthX: 10,
         blurStrengthY: 10,
-            borderRadius: BorderRadius.all(
+        borderRadius: BorderRadius.all(
                 Radius.circular(15,),),
         width: 290,
         height: 180,
