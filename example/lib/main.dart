@@ -218,6 +218,7 @@ class DemoCard extends StatelessWidget {
                 top: 50,
                 left: 10,
                 child: GlassCircle(
+                  child: Text("Hi"),
                   color: Colors.amber,
                   colorOpacity: 1,
                   radius: 100,
@@ -227,6 +228,7 @@ class DemoCard extends StatelessWidget {
                 top: 250,
                 right: 5,
                 child: GlassCircle(
+                  child: Text("HI"),
                   color: Colors.blue[900],
                   colorOpacity: 1,
                   radius: 90,
@@ -280,6 +282,8 @@ class DemoCard extends StatelessWidget {
                   height: 180,
                   width: 300,
                   color: Colors.white,
+                  blurStrengthY: 10,
+                  blurStrengthX: 10,
                   colorOpacity: 0.2,
                   borderRadius: BorderRadius.circular(15),
                 ),

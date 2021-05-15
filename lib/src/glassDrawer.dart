@@ -2,26 +2,27 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+///[GlassDrawer] return Glass UI Drawer
 class GlassDrawer extends StatefulWidget {
-  double blurStrengthX;
-  double blurStrengthY;
+  final double? blurStrengthX;
+  final double? blurStrengthY;
 
-  AlignmentGeometry alignment;
-  double colorOpacity;
+  final AlignmentGeometry? alignment;
+  final double? colorOpacity;
 
-  EdgeInsetsGeometry padding;
-  Color color;
+  final EdgeInsetsGeometry? padding;
+  final Color color;
 
-  Widget child;
+  final Widget child;
 
   GlassDrawer({
-    this.child,
+    required this.child,
     this.alignment,
     this.colorOpacity,
     this.padding,
     this.blurStrengthX,
     this.blurStrengthY,
-    this.color,
+    this.color = Colors.transparent,
   });
   @override
   _GlassDrawerState createState() => _GlassDrawerState();
@@ -41,7 +42,7 @@ class _GlassDrawerState extends State<GlassDrawer> {
             alignment: widget.alignment ?? Alignment.topLeft,
             padding: widget.padding ?? EdgeInsets.all(0),
             decoration: BoxDecoration(
-              color: widget.color == null
+              color: widget.color == Colors.transparent
                   ? Colors.transparent
                   : widget.color.withOpacity(widget.colorOpacity ?? 0.2),
             ),

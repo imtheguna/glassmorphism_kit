@@ -2,23 +2,39 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+/// [GlassBar] return a GlassBar like AppBar
 class GlassBar extends StatefulWidget {
-  double height;
-  Widget title;
-  Widget leading;
-  List<Widget> actions;
-  Color color;
-  double blurStrengthX;
-  double blurStrengthY;
-  double colorOpacity;
+  ///[height] GlassBar height type [double]
+  final double height;
+
+  ///[title] GlassBar title type [Widget]
+  final Widget title;
+
+  ///[leading] GlassBar leading type [Widget]
+  final Widget? leading;
+
+  ///[actions] GlassBar actions type [List<Widget>]
+  final List<Widget>? actions;
+
+  ///[color] GlassBar color type [Color]
+  final Color? color;
+
+  ///[blurStrengthX] GlassBar blur Strength X type [double]
+  final double? blurStrengthX;
+
+  ///[blurStrengthY] GlassBar blur Strength Y type [double]
+  final double? blurStrengthY;
+
+  ///[colorOpacity] GlassBar color opacity type [double]
+  final double? colorOpacity;
   GlassBar(
-      {this.height,
+      {this.height = 60,
       this.actions,
       this.blurStrengthX,
       this.blurStrengthY,
       this.color,
       this.leading,
-      this.title,
+      required this.title,
       this.colorOpacity});
   @override
   _GlassBarState createState() => _GlassBarState();
@@ -40,10 +56,10 @@ class _GlassBarState extends State<GlassBar> {
           child: Container(
             color: widget.color == null
                 ? Colors.transparent
-                : widget.color.withOpacity(widget.colorOpacity ?? 0.2),
+                : widget.color!.withOpacity(widget.colorOpacity ?? 0.2),
             alignment: Alignment.center,
             width: scrSize.width,
-            height: widget.height ?? 60,
+            height: widget.height,
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -54,7 +70,7 @@ class _GlassBarState extends State<GlassBar> {
                   child: widget.leading,
                 ),
                 Expanded(
-                  child: widget.title ?? Container(),
+                  child: widget.title,
                 ),
                 Row(
                   children: widget.actions ??

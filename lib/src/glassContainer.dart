@@ -2,30 +2,31 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+///[GlassContainer] return Glass UI Container
 class GlassContainer extends StatefulWidget {
-  double blurStrengthX;
-  double blurStrengthY;
-  double height;
-  AlignmentGeometry alignment;
-  double colorOpacity;
-  double width;
-  EdgeInsetsGeometry padding;
-  Color color;
-  BorderRadiusGeometry borderRadius;
-  Widget child;
-  BoxBorder border;
+  final double? blurStrengthX;
+  final double? blurStrengthY;
+  final double height;
+  final AlignmentGeometry? alignment;
+  final double? colorOpacity;
+  final double width;
+  final EdgeInsetsGeometry? padding;
+  final Color color;
+  final BorderRadius? borderRadius;
+  final Widget child;
+  final BoxBorder? border;
   GlassContainer({
-    this.child,
+    required this.child,
     this.alignment,
-    this.height,
+    this.height = 50,
     this.colorOpacity,
     this.border,
     this.borderRadius,
     this.padding,
-    this.width,
+    this.width = 50,
     this.blurStrengthX,
     this.blurStrengthY,
-    this.color,
+    this.color = Colors.transparent,
   });
   @override
   _GlassContainerState createState() => _GlassContainerState();
@@ -47,7 +48,7 @@ class _GlassContainerState extends State<GlassContainer> {
             alignment: widget.alignment ?? Alignment.topLeft,
             padding: widget.padding ?? EdgeInsets.all(0),
             decoration: BoxDecoration(
-              color: widget.color == null
+              color: widget.color == Colors.transparent
                   ? Colors.transparent
                   : widget.color.withOpacity(widget.colorOpacity ?? 0.2),
               borderRadius:
@@ -56,8 +57,8 @@ class _GlassContainerState extends State<GlassContainer> {
                   Border.all(width: 0.0, color: Colors.transparent),
             ),
             child: widget.child,
-            height: widget.height ?? 50,
-            width: widget.width ?? 50,
+            height: widget.height,
+            width: widget.width,
           )),
     );
   }

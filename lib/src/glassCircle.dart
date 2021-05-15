@@ -2,23 +2,24 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+///[GlassCircle] return Glass UI Circle
 class GlassCircle extends StatefulWidget {
-  double blurStrengthX;
-  double blurStrengthY;
-  double colorOpacity;
-  Color color;
-  double radius;
-  Widget child;
-  BoxBorder border;
+  final double? blurStrengthX;
+  final double? blurStrengthY;
+  final double? colorOpacity;
+  final Color color;
+  final double? radius;
+  final Widget child;
+  final BoxBorder? border;
 
   GlassCircle({
-    this.child,
+    required this.child,
     this.colorOpacity,
     this.border,
     this.radius,
     this.blurStrengthX,
     this.blurStrengthY,
-    this.color,
+    this.color = Colors.transparent,
   });
   @override
   _GlassButtonState createState() => _GlassButtonState();
@@ -43,7 +44,7 @@ class _GlassButtonState extends State<GlassCircle> {
             duration: kThemeChangeDuration,
             decoration: BoxDecoration(
               border: widget.border,
-              color: widget.color == null
+              color: widget.color == Colors.transparent
                   ? Colors.transparent
                   : widget.color.withOpacity(widget.colorOpacity ?? 0.2),
               shape: BoxShape.circle,

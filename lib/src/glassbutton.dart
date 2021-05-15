@@ -2,36 +2,37 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+///[GlassBotton] return Glass UI Botton
 class GlassBotton extends StatefulWidget {
-  double blurStrengthX;
-  double blurStrengthY;
-  double height;
-  AlignmentGeometry alignment;
-  double colorOpacity;
-  double width;
-  EdgeInsetsGeometry padding;
-  Color color;
-  BorderRadiusGeometry borderRadius;
-  Widget child;
-  BoxBorder border;
-  Function onTap;
-  Function onDoubleTap;
-  Function onLongPress;
+  final double blurStrengthX;
+  final double blurStrengthY;
+  final double height;
+  final AlignmentGeometry alignment;
+  final double colorOpacity;
+  final double width;
+  final EdgeInsetsGeometry? padding;
+  final Color color;
+  final BorderRadius? borderRadius;
+  final Widget child;
+  final BoxBorder? border;
+  final Function onTap;
+  final Function? onDoubleTap;
+  final Function? onLongPress;
   GlassBotton({
-    this.child,
-    this.alignment,
-    this.onTap,
+    required this.child,
+    this.alignment = Alignment.topLeft,
+    required this.onTap,
     this.onDoubleTap,
     this.onLongPress,
-    this.height,
-    this.colorOpacity,
+    this.height = 50,
+    this.colorOpacity = 0.2,
     this.border,
     this.borderRadius,
     this.padding,
-    this.width,
-    this.blurStrengthX,
-    this.blurStrengthY,
-    this.color,
+    this.width = 50,
+    this.blurStrengthX = 10,
+    this.blurStrengthY = 10,
+    this.color = Colors.transparent,
   });
   @override
   _GlassContainerState createState() => _GlassContainerState();
@@ -44,30 +45,29 @@ class _GlassContainerState extends State<GlassBotton> {
       borderRadius:
           widget.borderRadius ?? BorderRadius.all(Radius.circular(0.0)),
       child: InkWell(
-        onTap: widget.onTap,
-        onDoubleTap: widget.onDoubleTap,
-        onLongPress: widget.onLongPress,
+        onTap: () => widget.onTap,
+        onDoubleTap: () => widget.onDoubleTap,
+        onLongPress: () => widget.onLongPress,
         child: BackdropFilter(
             filter: ImageFilter.blur(
-              sigmaX: widget.blurStrengthX ?? 10,
-              sigmaY: widget.blurStrengthY ?? 10,
+              sigmaX: widget.blurStrengthX,
+              sigmaY: widget.blurStrengthY,
             ),
             child: AnimatedContainer(
               duration: kThemeChangeDuration,
-              alignment: widget.alignment ?? Alignment.topLeft,
-              padding: widget.padding ?? EdgeInsets.all(0),
+              alignment: widget.alignment,
+              padding: widget.padding,
               decoration: BoxDecoration(
-                color: widget.color == null
+                color: widget.color == Colors.transparent
                     ? Colors.transparent
-                    : widget.color.withOpacity(widget.colorOpacity ?? 0.2),
-                borderRadius:
-                    widget.borderRadius ?? BorderRadius.all(Radius.zero),
+                    : widget.color.withOpacity(widget.colorOpacity),
+                borderRadius: widget.borderRadius,
                 border: widget.border ??
                     Border.all(width: 0.0, color: Colors.transparent),
               ),
               child: widget.child,
-              height: widget.height ?? 50,
-              width: widget.width ?? 50,
+              height: widget.height,
+              width: widget.width,
             )),
       ),
     );

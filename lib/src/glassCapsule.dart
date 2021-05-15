@@ -2,25 +2,26 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+///[GlassCapsule] return Glass UI Capsule
 class GlassCapsule extends StatefulWidget {
-  double blurStrengthX;
-  double blurStrengthY;
-  double colorOpacity;
-  Color color;
-  double height;
-  double width;
-  Widget child;
-  BoxBorder border;
+  final double? blurStrengthX;
+  final double? blurStrengthY;
+  final double? colorOpacity;
+  final Color color;
+  final double? height;
+  final double? width;
+  final Widget child;
+  final BoxBorder? border;
 
   GlassCapsule({
-    this.child,
+    required this.child,
     this.colorOpacity,
     this.border,
     this.height,
     this.width,
     this.blurStrengthX,
     this.blurStrengthY,
-    this.color,
+    this.color = Colors.transparent,
   });
   @override
   _GlassCapsuleState createState() => _GlassCapsuleState();
@@ -46,7 +47,7 @@ class _GlassCapsuleState extends State<GlassCapsule> {
               borderRadius: BorderRadius.circular(
                   MediaQuery.of(context).size.shortestSide / 2),
               border: widget.border,
-              color: widget.color == null
+              color: widget.color == Colors.transparent
                   ? Colors.transparent
                   : widget.color.withOpacity(widget.colorOpacity ?? 0.2),
               shape: BoxShape.rectangle,

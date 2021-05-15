@@ -1,17 +1,15 @@
 name: glassmorphism_kit
 description: A Flutter package for creating Glassmorphic UI designs in an easy and simple manner! Supports iOS, Android and web.
-version: 0.1.1
+version: 0.2.0
 #author: Gunanithi
-homepage: https://github.com/twin-eng/glassmorphism_kit
+homepage: https://github.com/imtheguna/glassmorphism_kit
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
-    sdk: flutter
-  flutter_web_plugins:
     sdk: flutter
 
 dev_dependencies:
