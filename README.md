@@ -99,7 +99,7 @@ GlassDrawer(
         child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-        Text(
+        Text( 
             'GlassDrawer',
             style: TextStyle(
             color: Colors.white,
